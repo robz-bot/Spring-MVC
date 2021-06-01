@@ -15,10 +15,8 @@
 </head>
 <body>
 	<div class="card-header">
-		<h3>Employee Management</h3>
-	</div>
-	<div>
-		<nav class="navbar navbar-expand-lg bg-dark">
+		<h3>Employee Portal</h3>
+		<nav class="navbar navbar-expand-lg">
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
@@ -33,7 +31,7 @@
 
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="<c:url value="/Mail"/>"> <i
-							class="fas fa-envelope-square"></i> Send Mail
+							class="fas fa-envelope-square"></i> Task Management
 					</a></li>
 
 					<li class="nav-item"><a class="nav-link active"
@@ -46,8 +44,8 @@
 				</span>
 			</div>
 		</nav>
-	</div>
-	<div class="container">
+		</div>
+	<div class="container-sm">
 		<div class="row">
 			<div class="col">
 				<form action="SaveEmp" method="POST">
@@ -102,14 +100,10 @@
 
 								<div class="input-group">
 									<br /> <input type="submit" value="Save"
-										class="form-control btn btn-dark">
+										class="form-control btn btn-primary">
 								</div>
 							</div>
-							<div class="col">
-								<img
-									src="https://www.empinfo.com/EmpInfoWeb/resources/images/icons/verifier_register_icon.svg?v0">
-							</div>
-
+							
 
 						</div>
 					</div>
@@ -134,9 +128,20 @@ h3, .badge {
 	margin-top: 0%;
 	border: 1% solid;
 }
+div#divContainer {
+    width: 400px;
+}
 
 a.nav-link.active {
 	color: whitesmoke;
+}
+
+div#navbarText {
+background-color:#33B5E5;
+}
+
+input.form-control.btn.btn-primary{
+background-color:#33B5E5;
 }
 
 img {

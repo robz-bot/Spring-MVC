@@ -59,8 +59,8 @@ public class dao {
 		template.update(sql, p.getUserName(), p.getPassword(),p.getEmail());
 	}
 
-	public void saveMail(Mail mail) {
-		// TODO Auto-generated method stub
-		
+	public void saveMail(Mail p) {
+		String sql = "INSERT INTO mail (EmpId,Project,Module,Status,Message,StartDate,EndDate)" + " VALUES (?,?,?,?,?,?,?)";
+		template.update(sql, p.getEmpId(), p.getProject(),p.getModule(),p.getStatus(),p.getMessage(),p.getStartDate(),p.getEndDate());
 	}
 }

@@ -57,18 +57,13 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/Dashboard", method = RequestMethod.POST)
-	public String home(@ModelAttribute("login") LoginCredentials login, Model model,BindingResult result) {
+	public String home(@ModelAttribute("login") LoginCredentials login, Model model) {
 		List<Admin> list = dao.getAdminDetails();
-		System.out.print("Error:"+result.hasErrors());
-		if(result.hasErrors())
-		{
-			System.out.print("Error:"+result.hasErrors());
-			
-		}
 		boolean isTrue = false;
 		for (Admin ad : list) {
 			if (ad.getUserName().equals(login.getUsername()) && ad.getPassword().equals(login.getPassword())) {
 				isTrue = true;
+				break;
 			} else {
 				isTrue = false;
 			}
@@ -89,10 +84,6 @@ public class HomeController {
 	//Save Employee Logic
 	@RequestMapping(value = "/SaveEmp", method = RequestMethod.POST)
 	public String SaveEmp(@ModelAttribute("emp") Employee emp, Model model,BindingResult result) {
-		if(result.hasErrors())
-		{
-			
-		}
 		boolean validateModel = service.valiateModel(emp);
 		if (validateModel) {
 			dao.saveEmp(emp);
@@ -125,14 +116,15 @@ public class HomeController {
 	@RequestMapping(value = "/SaveMail", method = RequestMethod.POST)
 	public String SaveMail(@ModelAttribute("mail") Mail mail, Model model) {
 		boolean validateModel = service.valiateModel(mail);
+		System.out.println(mail);
 		if (validateModel) {
 			dao.saveMail(mail);
-			String SuccMsg = "Registered Successfully...";
+			String SuccMsg = "Task Added Successfully...";
 			model.addAttribute("SuccMsg", SuccMsg);
 		} else {
 			String ErrMsg = "Please Fill All the (*) Required Fields";
 			model.addAttribute("ErrMsg", ErrMsg);
 		}
-		return "signup";
+		return "mail";
 	}
 }
