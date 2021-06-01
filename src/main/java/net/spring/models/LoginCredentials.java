@@ -1,6 +1,9 @@
 package net.spring.models;
 
+import javax.validation.constraints.NotEmpty;
+
 public class LoginCredentials {
+	@NotEmpty(message = "Name may not be blank")
 	private String username;
     private String password;
     

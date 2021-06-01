@@ -130,6 +130,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.11</version>
 		</dependency>
+		<!-- jar is used for showing the server side validations in the spring 
+			framework -->
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.10.Final</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc 
 			<dependency> <groupId>org.springframework</groupId> <artifactId>spring-jdbc</artifactId> 
 			<version>5.1.1.RELEASE</version> </dependency> -->

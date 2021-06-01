@@ -14,105 +14,142 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
+	<div class="card-header">
+		<h3>Employee Management</h3>
+	</div>
 	<div>
 		<nav class="navbar navbar-expand-lg bg-dark">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="<c:url value="/Dashboard"/>">Employee Management</a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarText"
-					aria-controls="navbarText" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarText">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="<c:url value="/Dashboard"/>">
-							<i class="fas fa-home"></i> Home</a></li>
-							
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="<c:url value="/EmpList"/>">
-							<i class="fas fa-list"></i> Employee List</a></li>
-							
-							<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="<c:url value="/"/>">
-							<i class="fas fa-sign-out-alt"></i> Logout</a></li>
-					</ul>
-					<span class="navbar-text"> <a class="nav-link active"><i class="fas fa-user"></i>
-						Welcome, ROBIN!</a>
-					</span>
-				</div>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="<c:url value="/Dashboard"/>"> <i
+							class="fas fa-home"></i> Home
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="<c:url value="/EmpList"/>"> <i
+							class="fas fa-list"></i> Employee List
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="<c:url value="/Mail"/>"> <i
+							class="fas fa-envelope-square"></i> Send Mail
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="<c:url value="/"/>"> <i
+							class="fas fa-sign-out-alt"></i> Logout
+					</a></li>
+				</ul>
+				<span class="navbar-text"> <a class="nav-link active"><i
+						class="fas fa-user"></i> Welcome, Admin!</a>
+				</span>
 			</div>
 		</nav>
-		
-		<div class="card-header">
-			<h3>Employee Registration</h3>
-		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<form action="SaveEmp" method="POST">
+					<div class="container-sm" id="divContainer">
+						<div class="row">
 
-		<form action="SaveEmp" method="POST">
-			<div class="container-sm" id="divContainer">
-				<div class="row">
-					<div class="col">
-						<div>
-							<span class="badge text-success"> ${SuccMsg} </span>
-							<span class="badge text-danger"> ${ErrMsg} </span>
-						</div>
-						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1"><i
-								class="fas fa-pen"></i> </span> <input type="text" class="form-control"
-								placeholder="ID" aria-label="Username" name="EmpId"
-								aria-describedby="basic-addon1">
-						</div>
+							<div class="col">
+								<div>
+									<span class="badge text-success"> ${SuccMsg} </span> <span
+										class="badge text-danger"> ${ErrMsg} </span>
+								</div>
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+										class="fas fa-pen"></i> </span> <input type="text"
+										class="form-control" placeholder="ID" aria-label="Username"
+										name="EmpId" aria-describedby="basic-addon1">
+								</div>
 
-						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1"><i
-								class="fas fa-list-alt"></i> </span> <input type="text"
-								class="form-control" placeholder="Name" aria-label="Name"
-								name="Name" aria-describedby="basic-addon1" />
-						</div>
-						
-						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1"><i class="fas fa-phone-square-alt"></i> </span> <input type="text"
-								onkeypress="return onlyNumberKey(event)" maxlength="10"
-								class="form-control" placeholder="Phone" aria-label="PhoneNumber"
-								name="PhoneNumber" aria-describedby="basic-addon1" />
-						</div>
-						
-						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope-open-text"></i> </span> <input type="text"
-								class="form-control" placeholder="Email" aria-label="Email"
-								name="Email" aria-describedby="basic-addon1" />
-						</div>
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+										class="fas fa-list-alt"></i> </span> <input type="text"
+										class="form-control" placeholder="Name" aria-label="Name"
+										name="Name" aria-describedby="basic-addon1" />
+								</div>
 
-						<div class="input-group">
-							<br /> <input type="submit" value="Save"
-								class="form-control btn btn-primary">
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+										class="fas fa-phone-square-alt"></i> </span> <input type="text"
+										onkeypress="return onlyNumberKey(event)" maxlength="10"
+										class="form-control" placeholder="Phone"
+										aria-label="PhoneNumber" name="PhoneNumber"
+										aria-describedby="basic-addon1" />
+								</div>
+
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+										class="fas fa-envelope-open-text"></i> </span> <input type="text"
+										class="form-control" placeholder="Email" aria-label="Email"
+										name="Email" aria-describedby="basic-addon1" />
+								</div>
+
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+										class="fas fa-user-tag"></i> </span> <select name="Role"
+										class="form-control">
+										<option class="form-control" value="NONE">-- Select
+											Role --</option>
+										<option class="form-control" value="Manager">Manager</option>
+										<option class="form-control" value="Operator">Operator</option>
+									</select>
+								</div>
+
+								<div class="input-group">
+									<br /> <input type="submit" value="Save"
+										class="form-control btn btn-dark">
+								</div>
+							</div>
+							<div class="col">
+								<img
+									src="https://www.empinfo.com/EmpInfoWeb/resources/images/icons/verifier_register_icon.svg?v0">
+							</div>
+
+
 						</div>
 					</div>
-				</div>
+				</form>
 			</div>
-		</form>
+
+		</div>
 	</div>
+
 </body>
 </html>
 
 <style>
-h3,.badge {
+h3, .badge {
 	text-align: center;
 }
+
 #divContainer {
 	height: 50%;
 	width: 60%;
 	padding: 2%;
-	margin-top: 6%;
+	margin-top: 0%;
 	border: 1% solid;
 }
 
+a.nav-link.active {
+	color: whitesmoke;
+}
+
+img {
+	height: 350px;
+	width: 350px;
+}
+.col {
+    width: 100px;
+}
 </style>
 
 <script>
     function onlyNumberKey(evt) {
-         
         // Only ASCII character in that range allowed
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))

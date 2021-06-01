@@ -7,6 +7,13 @@ public class Employee {
 	private String Name;
 	private String PhoneNumber;
 	private String Email;
+	private String Role;
+	public String getRole() {
+		return Role;
+	}
+	public void setRole(String role) {
+		Role = role;
+	}
 	public String getEmpId() {
 		return EmpId;
 	}
@@ -32,16 +39,18 @@ public class Employee {
 		Email = email;
 	}
 	public Employee() {}
-	public Employee(String empId, String name, String phoneNumber, String email) {
+	public Employee(String empId, String name, String phoneNumber, String email,String role) {
 		this.EmpId = empId;
 		this.Name = name;
 		this.PhoneNumber = phoneNumber;
 		this.Email = email;
+		this.Role=role;
 	}
 	@Override
 	public String toString() {
 		return "Employee [EmpId=" + EmpId + ", Name=" + Name + ", PhoneNumber=" + PhoneNumber + ", Email=" + Email
-				+ "]";
+				+ ", Role=" + Role + "]";
 	}
+	
 	
 }
