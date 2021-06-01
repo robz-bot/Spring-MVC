@@ -14,7 +14,8 @@
 </head>
 <body>
 	<h3>Admin Login</h3>
-	<form class="login" action="SaveAdmin" method="POST">
+	<form class="login" action="Dashboard" method="POST">
+	<label class="text-danger">${ErrMsg}</label>
 		<label for="login__username">User Name</label> <input type="text"
 			id="login__username" name="username" required /> <label
 			for="login__password">Password</label> <input type="password"
@@ -22,7 +23,7 @@
 			type="submit" value="Login" /><br>
 		<p>Don't have an account?</p>
 		<a href="<c:url value="/Signup"/>"> SignUp Here</a> <img
-			src="https://www.dvc.gov.in/dvcwebsite_new1/wp-content/uploads/2018/09/employee-portal.jpg" />
+			src="https://www.dvc.gov.in/dvcwebsite_new1/wp-content/uploads/2018/09/employee-portal.jpg" />			
 	</form>
 
 </body>

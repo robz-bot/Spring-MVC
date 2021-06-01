@@ -14,7 +14,8 @@
 </head>
 <body>
 	<h3>Admin Register</h3>
-	<form class="login" action="Dashboard" method="POST">
+	<form class="login" action="SaveAdmin" method="POST">
+	
 		<label for="login__username">User Name</label> <input type="text"
 			id="login__username" name="UserName" required /> <label
 			for="login__password">Password</label> <input type="password"
@@ -27,11 +28,21 @@
 		<p>Already have an account?</p>
 		<a href="<c:url value="/"/>"> SignIn here</a> <img
 			src="https://i.dlpng.com/static/png/1290662-about-us-blue-people-png-500_500_preview.png" />
+			<label class="text-success">${SuccMsg}</label>
+	<label class="text-danger">${ErrMsg}</label>
 	</form>
 </body>
 </html>
 
 <style>
+label.text-success {
+    margin-top: -350px;
+    margin-right: -600px;
+}
+label.text-danger {
+    margin-top: -350px;
+    margin-right: -600px;
+}
 input#login__username {
 	margin-left: -300px;
 }
@@ -51,9 +62,9 @@ h3 {
 form.login {
 	align-items: center;
 	width: 700px;
-	margin-top: 10px;
+	/*margin-top: 10px;*/
 	margin-left: -20px;
-	height: 500px;
+	height: 520px;
 }
 
 input[type="submit"] {

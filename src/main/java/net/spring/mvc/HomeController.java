@@ -70,7 +70,7 @@ public class HomeController {
 		}
 		System.out.println(isTrue);
 		if (!isTrue) {
-			String ErrMsg = "User Not Found";
+			String ErrMsg = "User Not Found!";
 			model.addAttribute("ErrMsg", ErrMsg);
 			return "home";
 		} else {
@@ -101,14 +101,23 @@ public class HomeController {
 	@RequestMapping(value = "/SaveAdmin", method = RequestMethod.POST)
 	public String SaveAdmin(@ModelAttribute("admin") Admin admin, Model model, @RequestParam("cpass") String cpass) {
 		boolean validateModel = service.valiateModel(admin);
-		if (validateModel) {
-			dao.saveAdmin(admin);
-			String SuccMsg = "Registered Successfully...";
-			model.addAttribute("SuccMsg", SuccMsg);
-		} else {
-			String ErrMsg = "Please Fill All the (*) Required Fields";
+		if(cpass==admin.getPassword())
+		{
+			if (validateModel) {
+				dao.saveAdmin(admin);
+				String SuccMsg = "Registered Successfully...";
+				model.addAttribute("SuccMsg", SuccMsg);
+			} else {
+				String ErrMsg = "Please Fill All the (*) Required Fields";
+				model.addAttribute("ErrMsg", ErrMsg);
+			}
+		}
+		else
+		{
+			String ErrMsg = "Password and Confirm Password doesn't match!";
 			model.addAttribute("ErrMsg", ErrMsg);
 		}
+		
 		return "signup";
 	}
 	
